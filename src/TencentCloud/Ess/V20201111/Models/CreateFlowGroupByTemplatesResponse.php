@@ -18,33 +18,32 @@ namespace TencentCloud\Ess\V20201111\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeFlowInfo返回参数结构体
+ * CreateFlowGroupByTemplates返回参数结构体
  *
- * @method array getFlowDetailInfos() 获取签署流程信息
- * @method void setFlowDetailInfos(array $FlowDetailInfos) 设置签署流程信息
- * @method string getFlowGroupId() 获取合同组ID
- * @method void setFlowGroupId(string $FlowGroupId) 设置合同组ID
- * @method string getFlowGroupName() 获取合同组名称
- * @method void setFlowGroupName(string $FlowGroupName) 设置合同组名称
+ * @method string getFlowGroupId() 获取合同(流程)组的合同组Id
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setFlowGroupId(string $FlowGroupId) 设置合同(流程)组的合同组Id
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getFlowIds() 获取合同(流程)组中子合同列表.
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setFlowIds(array $FlowIds) 设置合同(流程)组中子合同列表.
+注意：此字段可能返回 null，表示取不到有效值。
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeFlowInfoResponse extends AbstractModel
+class CreateFlowGroupByTemplatesResponse extends AbstractModel
 {
     /**
-     * @var array 签署流程信息
-     */
-    public $FlowDetailInfos;
-
-    /**
-     * @var string 合同组ID
+     * @var string 合同(流程)组的合同组Id
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public $FlowGroupId;
 
     /**
-     * @var string 合同组名称
+     * @var array 合同(流程)组中子合同列表.
+注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $FlowGroupName;
+    public $FlowIds;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -52,9 +51,10 @@ class DescribeFlowInfoResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $FlowDetailInfos 签署流程信息
-     * @param string $FlowGroupId 合同组ID
-     * @param string $FlowGroupName 合同组名称
+     * @param string $FlowGroupId 合同(流程)组的合同组Id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $FlowIds 合同(流程)组中子合同列表.
+注意：此字段可能返回 null，表示取不到有效值。
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -70,21 +70,12 @@ class DescribeFlowInfoResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("FlowDetailInfos",$param) and $param["FlowDetailInfos"] !== null) {
-            $this->FlowDetailInfos = [];
-            foreach ($param["FlowDetailInfos"] as $key => $value){
-                $obj = new FlowDetailInfo();
-                $obj->deserialize($value);
-                array_push($this->FlowDetailInfos, $obj);
-            }
-        }
-
         if (array_key_exists("FlowGroupId",$param) and $param["FlowGroupId"] !== null) {
             $this->FlowGroupId = $param["FlowGroupId"];
         }
 
-        if (array_key_exists("FlowGroupName",$param) and $param["FlowGroupName"] !== null) {
-            $this->FlowGroupName = $param["FlowGroupName"];
+        if (array_key_exists("FlowIds",$param) and $param["FlowIds"] !== null) {
+            $this->FlowIds = $param["FlowIds"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
