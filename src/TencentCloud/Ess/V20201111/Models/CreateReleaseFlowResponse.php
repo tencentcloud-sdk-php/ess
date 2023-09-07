@@ -21,8 +21,10 @@ use TencentCloud\Common\AbstractModel;
  * CreateReleaseFlow返回参数结构体
  *
  * @method string getFlowId() 获取解除协议流程编号
+`注意：这里的流程编号对应的合同是本次发起的解除协议。`
 
  * @method void setFlowId(string $FlowId) 设置解除协议流程编号
+`注意：这里的流程编号对应的合同是本次发起的解除协议。`
 
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -31,6 +33,7 @@ class CreateReleaseFlowResponse extends AbstractModel
 {
     /**
      * @var string 解除协议流程编号
+`注意：这里的流程编号对应的合同是本次发起的解除协议。`
 
      */
     public $FlowId;
@@ -42,6 +45,7 @@ class CreateReleaseFlowResponse extends AbstractModel
 
     /**
      * @param string $FlowId 解除协议流程编号
+`注意：这里的流程编号对应的合同是本次发起的解除协议。`
 
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
