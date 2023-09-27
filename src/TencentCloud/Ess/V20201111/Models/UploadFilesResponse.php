@@ -20,8 +20,10 @@ use TencentCloud\Common\AbstractModel;
 /**
  * UploadFiles返回参数结构体
  *
- * @method array getFileIds() 获取文件id数组
- * @method void setFileIds(array $FileIds) 设置文件id数组
+ * @method array getFileIds() 获取文件资源ID数组，每个文件资源ID为32位字符串。
+建议开发者保存此资源ID，后续创建合同或创建合同流程需此资源ID。
+ * @method void setFileIds(array $FileIds) 设置文件资源ID数组，每个文件资源ID为32位字符串。
+建议开发者保存此资源ID，后续创建合同或创建合同流程需此资源ID。
  * @method integer getTotalCount() 获取上传成功文件数量
  * @method void setTotalCount(integer $TotalCount) 设置上传成功文件数量
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -30,7 +32,8 @@ use TencentCloud\Common\AbstractModel;
 class UploadFilesResponse extends AbstractModel
 {
     /**
-     * @var array 文件id数组
+     * @var array 文件资源ID数组，每个文件资源ID为32位字符串。
+建议开发者保存此资源ID，后续创建合同或创建合同流程需此资源ID。
      */
     public $FileIds;
 
@@ -45,7 +48,8 @@ class UploadFilesResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $FileIds 文件id数组
+     * @param array $FileIds 文件资源ID数组，每个文件资源ID为32位字符串。
+建议开发者保存此资源ID，后续创建合同或创建合同流程需此资源ID。
      * @param integer $TotalCount 上传成功文件数量
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
