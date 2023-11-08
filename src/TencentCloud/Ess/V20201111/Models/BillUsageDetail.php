@@ -28,9 +28,11 @@ use TencentCloud\Common\AbstractModel;
 建议开发者妥善保存此流程ID，以便于顺利进行后续操作。
 可登录腾讯电子签控制台，在 "合同"->"合同中心" 中查看某个合同的FlowId(在页面中展示为合同ID)。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getOperatorName() 获取经办人名称
+ * @method string getOperatorName() 获取合同经办人名称
+如果有多个经办人用分号隔开。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setOperatorName(string $OperatorName) 设置经办人名称
+ * @method void setOperatorName(string $OperatorName) 设置合同经办人名称
+如果有多个经办人用分号隔开。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getCreateOrganizationName() 获取发起方组织机构名称
 注意：此字段可能返回 null，表示取不到有效值。
@@ -42,29 +44,85 @@ use TencentCloud\Common\AbstractModel;
  * @method void setFlowName(string $FlowName) 设置合同流程的名称（可自定义此名称），长度不能超过200，只能由中文、字母、数字和下划线组成。
 该名称还将用于合同签署完成后的下载文件名。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getStatus() 获取0 还没有发起 1等待签署 2部分签署 3拒签 4已签署 5已过期 6已撤销 7还没有预发起 8等待填写 9部分填写 10拒填 11已解除
+ * @method integer getStatus() 获取当前合同状态,如下是状态码对应的状态。
+0-还没有发起
+1-等待签署
+2-部分签署 
+3-拒签
+4-已签署 
+5-已过期 
+6-已撤销 
+7-还没有预发起
+8-等待填写
+9-部分填写 
+10-拒填
+11-已解除
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setStatus(integer $Status) 设置0 还没有发起 1等待签署 2部分签署 3拒签 4已签署 5已过期 6已撤销 7还没有预发起 8等待填写 9部分填写 10拒填 11已解除
+ * @method void setStatus(integer $Status) 设置当前合同状态,如下是状态码对应的状态。
+0-还没有发起
+1-等待签署
+2-部分签署 
+3-拒签
+4-已签署 
+5-已过期 
+6-已撤销 
+7-还没有预发起
+8-等待填写
+9-部分填写 
+10-拒填
+11-已解除
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getQuotaType() 获取套餐类型
+对应关系如下
+CloudEnterprise-企业版合同
+SingleSignature-单方签章
+CloudProve-签署报告
+CloudOnlineSign-腾讯会议在线签约
+ChannelWeCard-微工卡
+SignFlow-合同套餐
+SignFace-签署意愿（人脸识别）
+SignPassword-签署意愿（密码）
+SignSMS-签署意愿（短信）
+PersonalEssAuth-签署人实名（腾讯电子签认证）
+PersonalThirdAuth-签署人实名（信任第三方认证）
+OrgEssAuth-签署企业实名
+FlowNotify-短信通知
+AuthService-企业工商信息查询
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setQuotaType(string $QuotaType) 设置套餐类型
+对应关系如下
+CloudEnterprise-企业版合同
+SingleSignature-单方签章
+CloudProve-签署报告
+CloudOnlineSign-腾讯会议在线签约
+ChannelWeCard-微工卡
+SignFlow-合同套餐
+SignFace-签署意愿（人脸识别）
+SignPassword-签署意愿（密码）
+SignSMS-签署意愿（短信）
+PersonalEssAuth-签署人实名（腾讯电子签认证）
+PersonalThirdAuth-签署人实名（信任第三方认证）
+OrgEssAuth-签署企业实名
+FlowNotify-短信通知
+AuthService-企业工商信息查询
 注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getUseCount() 获取合同使用量
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setUseCount(integer $UseCount) 设置合同使用量
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getCostTime() 获取消耗的时间戳
+ * @method integer getCostTime() 获取消耗的时间戳，格式为Unix标准时间戳（秒）。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setCostTime(integer $CostTime) 设置消耗的时间戳
+ * @method void setCostTime(integer $CostTime) 设置消耗的时间戳，格式为Unix标准时间戳（秒）。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getQuotaName() 获取套餐名称
+ * @method string getQuotaName() 获取消耗的套餐名称
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setQuotaName(string $QuotaName) 设置套餐名称
+ * @method void setQuotaName(string $QuotaName) 设置消耗的套餐名称
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getCostType() 获取 消耗类型	1.扣费 2.撤销返还
+ * @method integer getCostType() 获取消耗类型
+1.扣费 2.撤销返还
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setCostType(integer $CostType) 设置 消耗类型	1.扣费 2.撤销返还
+ * @method void setCostType(integer $CostType) 设置消耗类型
+1.扣费 2.撤销返还
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getRemark() 获取备注
 注意：此字段可能返回 null，表示取不到有效值。
@@ -82,7 +140,8 @@ class BillUsageDetail extends AbstractModel
     public $FlowId;
 
     /**
-     * @var string 经办人名称
+     * @var string 合同经办人名称
+如果有多个经办人用分号隔开。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $OperatorName;
@@ -101,13 +160,40 @@ class BillUsageDetail extends AbstractModel
     public $FlowName;
 
     /**
-     * @var integer 0 还没有发起 1等待签署 2部分签署 3拒签 4已签署 5已过期 6已撤销 7还没有预发起 8等待填写 9部分填写 10拒填 11已解除
+     * @var integer 当前合同状态,如下是状态码对应的状态。
+0-还没有发起
+1-等待签署
+2-部分签署 
+3-拒签
+4-已签署 
+5-已过期 
+6-已撤销 
+7-还没有预发起
+8-等待填写
+9-部分填写 
+10-拒填
+11-已解除
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Status;
 
     /**
      * @var string 套餐类型
+对应关系如下
+CloudEnterprise-企业版合同
+SingleSignature-单方签章
+CloudProve-签署报告
+CloudOnlineSign-腾讯会议在线签约
+ChannelWeCard-微工卡
+SignFlow-合同套餐
+SignFace-签署意愿（人脸识别）
+SignPassword-签署意愿（密码）
+SignSMS-签署意愿（短信）
+PersonalEssAuth-签署人实名（腾讯电子签认证）
+PersonalThirdAuth-签署人实名（信任第三方认证）
+OrgEssAuth-签署企业实名
+FlowNotify-短信通知
+AuthService-企业工商信息查询
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $QuotaType;
@@ -119,19 +205,20 @@ class BillUsageDetail extends AbstractModel
     public $UseCount;
 
     /**
-     * @var integer 消耗的时间戳
+     * @var integer 消耗的时间戳，格式为Unix标准时间戳（秒）。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $CostTime;
 
     /**
-     * @var string 套餐名称
+     * @var string 消耗的套餐名称
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $QuotaName;
 
     /**
-     * @var integer  消耗类型	1.扣费 2.撤销返还
+     * @var integer 消耗类型
+1.扣费 2.撤销返还
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $CostType;
@@ -147,24 +234,53 @@ class BillUsageDetail extends AbstractModel
 建议开发者妥善保存此流程ID，以便于顺利进行后续操作。
 可登录腾讯电子签控制台，在 "合同"->"合同中心" 中查看某个合同的FlowId(在页面中展示为合同ID)。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $OperatorName 经办人名称
+     * @param string $OperatorName 合同经办人名称
+如果有多个经办人用分号隔开。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $CreateOrganizationName 发起方组织机构名称
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $FlowName 合同流程的名称（可自定义此名称），长度不能超过200，只能由中文、字母、数字和下划线组成。
 该名称还将用于合同签署完成后的下载文件名。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $Status 0 还没有发起 1等待签署 2部分签署 3拒签 4已签署 5已过期 6已撤销 7还没有预发起 8等待填写 9部分填写 10拒填 11已解除
+     * @param integer $Status 当前合同状态,如下是状态码对应的状态。
+0-还没有发起
+1-等待签署
+2-部分签署 
+3-拒签
+4-已签署 
+5-已过期 
+6-已撤销 
+7-还没有预发起
+8-等待填写
+9-部分填写 
+10-拒填
+11-已解除
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $QuotaType 套餐类型
+对应关系如下
+CloudEnterprise-企业版合同
+SingleSignature-单方签章
+CloudProve-签署报告
+CloudOnlineSign-腾讯会议在线签约
+ChannelWeCard-微工卡
+SignFlow-合同套餐
+SignFace-签署意愿（人脸识别）
+SignPassword-签署意愿（密码）
+SignSMS-签署意愿（短信）
+PersonalEssAuth-签署人实名（腾讯电子签认证）
+PersonalThirdAuth-签署人实名（信任第三方认证）
+OrgEssAuth-签署企业实名
+FlowNotify-短信通知
+AuthService-企业工商信息查询
 注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $UseCount 合同使用量
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $CostTime 消耗的时间戳
+     * @param integer $CostTime 消耗的时间戳，格式为Unix标准时间戳（秒）。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $QuotaName 套餐名称
+     * @param string $QuotaName 消耗的套餐名称
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $CostType  消耗类型	1.扣费 2.撤销返还
+     * @param integer $CostType 消耗类型
+1.扣费 2.撤销返还
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Remark 备注
 注意：此字段可能返回 null，表示取不到有效值。

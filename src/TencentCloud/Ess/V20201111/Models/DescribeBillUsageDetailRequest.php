@@ -20,10 +20,10 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeBillUsageDetail请求参数结构体
  *
- * @method string getStartTime() 获取查询开始时间，时间跨度不能大于31天
- * @method void setStartTime(string $StartTime) 设置查询开始时间，时间跨度不能大于31天
- * @method string getEndTime() 获取查询结束时间，时间跨度不能大于31天
- * @method void setEndTime(string $EndTime) 设置查询结束时间，时间跨度不能大于31天
+ * @method string getStartTime() 获取查询开始时间字符串，格式为yyyymmdd,时间跨度不能大于31天
+ * @method void setStartTime(string $StartTime) 设置查询开始时间字符串，格式为yyyymmdd,时间跨度不能大于31天
+ * @method string getEndTime() 获取查询结束时间字符串，格式为yyyymmdd,时间跨度不能大于31天
+ * @method void setEndTime(string $EndTime) 设置查询结束时间字符串，格式为yyyymmdd,时间跨度不能大于31天
  * @method integer getOffset() 获取指定分页返回第几页的数据，如果不传默认返回第一页，页码从 0 开始，即首页为 0
  * @method void setOffset(integer $Offset) 设置指定分页返回第几页的数据，如果不传默认返回第一页，页码从 0 开始，即首页为 0
  * @method integer getLimit() 获取指定分页每页返回的数据条数，如果不传默认为 50，单页最大支持 50。
@@ -60,20 +60,20 @@ PersonalThirdAuth-签署人实名（信任第三方认证）
 OrgEssAuth-签署企业实名
 FlowNotify-短信通知
 AuthService-企业工商信息查询
- * @method Agent getAgent() 获取非必填，查询某个渠道企业的消耗情况。
-关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
- * @method void setAgent(Agent $Agent) 设置非必填，查询某个渠道企业的消耗情况。
-关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+ * @method Agent getAgent() 获取代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
+ * @method void setAgent(Agent $Agent) 设置代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
  */
 class DescribeBillUsageDetailRequest extends AbstractModel
 {
     /**
-     * @var string 查询开始时间，时间跨度不能大于31天
+     * @var string 查询开始时间字符串，格式为yyyymmdd,时间跨度不能大于31天
      */
     public $StartTime;
 
     /**
-     * @var string 查询结束时间，时间跨度不能大于31天
+     * @var string 查询结束时间字符串，格式为yyyymmdd,时间跨度不能大于31天
      */
     public $EndTime;
 
@@ -108,14 +108,14 @@ AuthService-企业工商信息查询
     public $QuotaType;
 
     /**
-     * @var Agent 非必填，查询某个渠道企业的消耗情况。
-关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+     * @var Agent 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
      */
     public $Agent;
 
     /**
-     * @param string $StartTime 查询开始时间，时间跨度不能大于31天
-     * @param string $EndTime 查询结束时间，时间跨度不能大于31天
+     * @param string $StartTime 查询开始时间字符串，格式为yyyymmdd,时间跨度不能大于31天
+     * @param string $EndTime 查询结束时间字符串，格式为yyyymmdd,时间跨度不能大于31天
      * @param integer $Offset 指定分页返回第几页的数据，如果不传默认返回第一页，页码从 0 开始，即首页为 0
      * @param integer $Limit 指定分页每页返回的数据条数，如果不传默认为 50，单页最大支持 50。
      * @param string $QuotaType 查询的套餐类型 （选填 ）不传则查询所有套餐；
@@ -134,8 +134,8 @@ PersonalThirdAuth-签署人实名（信任第三方认证）
 OrgEssAuth-签署企业实名
 FlowNotify-短信通知
 AuthService-企业工商信息查询
-     * @param Agent $Agent 非必填，查询某个渠道企业的消耗情况。
-关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+     * @param Agent $Agent 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
      */
     function __construct()
     {
