@@ -18,17 +18,14 @@ namespace TencentCloud\Ess\V20201111\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeExtendedServiceAuthInfos请求参数结构体
+ * ModifyExtendedService请求参数结构体
  *
  * @method UserInfo getOperator() 获取执行本接口操作的员工信息。
 注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
  * @method void setOperator(UserInfo $Operator) 设置执行本接口操作的员工信息。
 注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
- * @method string getExtendServiceType() 获取要查询的扩展服务类型。
-默认为空，即查询当前支持的所有扩展服务信息。
-若需查询单个扩展服务的开通情况，请传递相应的值，如下所示：
+ * @method string getServiceType() 获取要管理的拓展服务类型。
 <ul><li>OPEN_SERVER_SIGN：企业自动签署</li>
-<li>BATCH_SIGN：批量签署</li>
 <li>OVERSEA_SIGN：企业与港澳台居民签署合同</li>
 <li>AGE_LIMIT_EXPANSION：拓宽签署方年龄限制</li>
 <li>MOBILE_CHECK_APPROVER：个人签署方仅校验手机号</li>
@@ -38,11 +35,8 @@ use TencentCloud\Common\AbstractModel;
 <li>HIDE_ONE_KEY_SIGN：个人签署方手动签字</li>
 <li>PAGING_SEAL：骑缝章</li>
 <li>ORGANIZATION_FLOW_PASSWD_NOTIFY：签署密码开通引导</li></ul>
- * @method void setExtendServiceType(string $ExtendServiceType) 设置要查询的扩展服务类型。
-默认为空，即查询当前支持的所有扩展服务信息。
-若需查询单个扩展服务的开通情况，请传递相应的值，如下所示：
+ * @method void setServiceType(string $ServiceType) 设置要管理的拓展服务类型。
 <ul><li>OPEN_SERVER_SIGN：企业自动签署</li>
-<li>BATCH_SIGN：批量签署</li>
 <li>OVERSEA_SIGN：企业与港澳台居民签署合同</li>
 <li>AGE_LIMIT_EXPANSION：拓宽签署方年龄限制</li>
 <li>MOBILE_CHECK_APPROVER：个人签署方仅校验手机号</li>
@@ -52,12 +46,32 @@ use TencentCloud\Common\AbstractModel;
 <li>HIDE_ONE_KEY_SIGN：个人签署方手动签字</li>
 <li>PAGING_SEAL：骑缝章</li>
 <li>ORGANIZATION_FLOW_PASSWD_NOTIFY：签署密码开通引导</li></ul>
+ * @method string getOperate() 获取操作类型
+<ul>
+<li>OPEN : 开通</li>
+<li>CLOSE : 关闭</li>
+</ul>
+ * @method void setOperate(string $Operate) 设置操作类型
+<ul>
+<li>OPEN : 开通</li>
+<li>CLOSE : 关闭</li>
+</ul>
  * @method Agent getAgent() 获取代理企业和员工的信息。
 在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
  * @method void setAgent(Agent $Agent) 设置代理企业和员工的信息。
 在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
+ * @method string getEndpoint() 获取链接跳转类型，支持以下类型
+<ul>
+<li>WEIXINAPP : 短链直接跳转到电子签小程序  (默认值)</li>
+<li>APP : 第三方APP或小程序跳转电子签小程序</li>
+</ul>
+ * @method void setEndpoint(string $Endpoint) 设置链接跳转类型，支持以下类型
+<ul>
+<li>WEIXINAPP : 短链直接跳转到电子签小程序  (默认值)</li>
+<li>APP : 第三方APP或小程序跳转电子签小程序</li>
+</ul>
  */
-class DescribeExtendedServiceAuthInfosRequest extends AbstractModel
+class ModifyExtendedServiceRequest extends AbstractModel
 {
     /**
      * @var UserInfo 执行本接口操作的员工信息。
@@ -66,11 +80,8 @@ class DescribeExtendedServiceAuthInfosRequest extends AbstractModel
     public $Operator;
 
     /**
-     * @var string 要查询的扩展服务类型。
-默认为空，即查询当前支持的所有扩展服务信息。
-若需查询单个扩展服务的开通情况，请传递相应的值，如下所示：
+     * @var string 要管理的拓展服务类型。
 <ul><li>OPEN_SERVER_SIGN：企业自动签署</li>
-<li>BATCH_SIGN：批量签署</li>
 <li>OVERSEA_SIGN：企业与港澳台居民签署合同</li>
 <li>AGE_LIMIT_EXPANSION：拓宽签署方年龄限制</li>
 <li>MOBILE_CHECK_APPROVER：个人签署方仅校验手机号</li>
@@ -81,7 +92,16 @@ class DescribeExtendedServiceAuthInfosRequest extends AbstractModel
 <li>PAGING_SEAL：骑缝章</li>
 <li>ORGANIZATION_FLOW_PASSWD_NOTIFY：签署密码开通引导</li></ul>
      */
-    public $ExtendServiceType;
+    public $ServiceType;
+
+    /**
+     * @var string 操作类型
+<ul>
+<li>OPEN : 开通</li>
+<li>CLOSE : 关闭</li>
+</ul>
+     */
+    public $Operate;
 
     /**
      * @var Agent 代理企业和员工的信息。
@@ -90,13 +110,19 @@ class DescribeExtendedServiceAuthInfosRequest extends AbstractModel
     public $Agent;
 
     /**
+     * @var string 链接跳转类型，支持以下类型
+<ul>
+<li>WEIXINAPP : 短链直接跳转到电子签小程序  (默认值)</li>
+<li>APP : 第三方APP或小程序跳转电子签小程序</li>
+</ul>
+     */
+    public $Endpoint;
+
+    /**
      * @param UserInfo $Operator 执行本接口操作的员工信息。
 注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
-     * @param string $ExtendServiceType 要查询的扩展服务类型。
-默认为空，即查询当前支持的所有扩展服务信息。
-若需查询单个扩展服务的开通情况，请传递相应的值，如下所示：
+     * @param string $ServiceType 要管理的拓展服务类型。
 <ul><li>OPEN_SERVER_SIGN：企业自动签署</li>
-<li>BATCH_SIGN：批量签署</li>
 <li>OVERSEA_SIGN：企业与港澳台居民签署合同</li>
 <li>AGE_LIMIT_EXPANSION：拓宽签署方年龄限制</li>
 <li>MOBILE_CHECK_APPROVER：个人签署方仅校验手机号</li>
@@ -106,8 +132,18 @@ class DescribeExtendedServiceAuthInfosRequest extends AbstractModel
 <li>HIDE_ONE_KEY_SIGN：个人签署方手动签字</li>
 <li>PAGING_SEAL：骑缝章</li>
 <li>ORGANIZATION_FLOW_PASSWD_NOTIFY：签署密码开通引导</li></ul>
+     * @param string $Operate 操作类型
+<ul>
+<li>OPEN : 开通</li>
+<li>CLOSE : 关闭</li>
+</ul>
      * @param Agent $Agent 代理企业和员工的信息。
 在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
+     * @param string $Endpoint 链接跳转类型，支持以下类型
+<ul>
+<li>WEIXINAPP : 短链直接跳转到电子签小程序  (默认值)</li>
+<li>APP : 第三方APP或小程序跳转电子签小程序</li>
+</ul>
      */
     function __construct()
     {
@@ -127,13 +163,21 @@ class DescribeExtendedServiceAuthInfosRequest extends AbstractModel
             $this->Operator->deserialize($param["Operator"]);
         }
 
-        if (array_key_exists("ExtendServiceType",$param) and $param["ExtendServiceType"] !== null) {
-            $this->ExtendServiceType = $param["ExtendServiceType"];
+        if (array_key_exists("ServiceType",$param) and $param["ServiceType"] !== null) {
+            $this->ServiceType = $param["ServiceType"];
+        }
+
+        if (array_key_exists("Operate",$param) and $param["Operate"] !== null) {
+            $this->Operate = $param["Operate"];
         }
 
         if (array_key_exists("Agent",$param) and $param["Agent"] !== null) {
             $this->Agent = new Agent();
             $this->Agent->deserialize($param["Agent"]);
+        }
+
+        if (array_key_exists("Endpoint",$param) and $param["Endpoint"] !== null) {
+            $this->Endpoint = $param["Endpoint"];
         }
     }
 }
