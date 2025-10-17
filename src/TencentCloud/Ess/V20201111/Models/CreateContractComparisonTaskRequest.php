@@ -18,24 +18,18 @@ namespace TencentCloud\Ess\V20201111\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CreateContractDiffTaskWebUrl请求参数结构体
+ * CreateContractComparisonTask请求参数结构体
  *
- * @method UserInfo getOperator() 获取执行本接口操作的员工信息。使用此接口时，必须填写userId。
-
+ * @method UserInfo getOperator() 获取执行合同审查任务的员工信息。
 注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
- * @method void setOperator(UserInfo $Operator) 设置执行本接口操作的员工信息。使用此接口时，必须填写userId。
-
+ * @method void setOperator(UserInfo $Operator) 设置执行合同审查任务的员工信息。
 注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
- * @method boolean getSkipFileUpload() 获取是否跳过文件上传确认页。
-当该参数值为`false`时，`OriginalFileResourceId`和`DiffFileResourceId`参数不需要传值，需要在生成的web页面中上传对比文件；
-当该参数值为`true`时，`OriginalFileResourceId`和`DiffFileResourceId`参数必填，生成的web页面将跳过上传页面显示对比结果。
- * @method void setSkipFileUpload(boolean $SkipFileUpload) 设置是否跳过文件上传确认页。
-当该参数值为`false`时，`OriginalFileResourceId`和`DiffFileResourceId`参数不需要传值，需要在生成的web页面中上传对比文件；
-当该参数值为`true`时，`OriginalFileResourceId`和`DiffFileResourceId`参数必填，生成的web页面将跳过上传页面显示对比结果。
- * @method string getOriginalFileResourceId() 获取需要对比的原合同文件资源ID，通过<a href="https://qian.tencent.com/developers/companyApis/templatesAndFiles/UploadFiles" target="_blank">UploadFiles</a>接口获取文件资源ID。
- * @method void setOriginalFileResourceId(string $OriginalFileResourceId) 设置需要对比的原合同文件资源ID，通过<a href="https://qian.tencent.com/developers/companyApis/templatesAndFiles/UploadFiles" target="_blank">UploadFiles</a>接口获取文件资源ID。
- * @method string getDiffFileResourceId() 获取需要对比的新合同文件资源ID，通过<a href="https://qian.tencent.com/developers/companyApis/templatesAndFiles/UploadFiles" target="_blank">UploadFiles</a>接口获取文件资源ID。
- * @method void setDiffFileResourceId(string $DiffFileResourceId) 设置需要对比的新合同文件资源ID，通过<a href="https://qian.tencent.com/developers/companyApis/templatesAndFiles/UploadFiles" target="_blank">UploadFiles</a>接口获取文件资源ID。
+ * @method string getOriginFileResourceId() 获取原版文件ID，对比基准的旧版本文件唯一标识，通过<a href="https://qian.tencent.com/developers/companyApis/templatesAndFiles/UploadFiles" target="_blank">UploadFiles</a>接口获取文件资源ID。
+ * @method void setOriginFileResourceId(string $OriginFileResourceId) 设置原版文件ID，对比基准的旧版本文件唯一标识，通过<a href="https://qian.tencent.com/developers/companyApis/templatesAndFiles/UploadFiles" target="_blank">UploadFiles</a>接口获取文件资源ID。
+ * @method string getDiffFileResourceId() 获取新版文件ID，与旧版进行对比的新版本文件唯一标识，通过<a href="https://qian.tencent.com/developers/companyApis/templatesAndFiles/UploadFiles" target="_blank">UploadFiles</a>接口获取文件资源ID。
+ * @method void setDiffFileResourceId(string $DiffFileResourceId) 设置新版文件ID，与旧版进行对比的新版本文件唯一标识，通过<a href="https://qian.tencent.com/developers/companyApis/templatesAndFiles/UploadFiles" target="_blank">UploadFiles</a>接口获取文件资源ID。
+ * @method string getComment() 获取对比任务备注，长度不能超过50个字符。
+ * @method void setComment(string $Comment) 设置对比任务备注，长度不能超过50个字符。
  * @method string getUserData() 获取调用方自定义的个性化字段(可自定义此名称)，并以base64方式编码，支持的最大数据大小为 1024长度。
 
 在合同状态变更的回调信息等场景中，该字段的信息将原封不动地透传给贵方。回调的相关说明可参考开发者中心的[回调通知](https://qian.tencent.com/developers/company/callback_types_v2)模块。
@@ -45,31 +39,28 @@ use TencentCloud\Common\AbstractModel;
  * @method array getTags() 获取标签列表，用户自定义的键值对（Key-Value），可绑定到资源上，用于资源的分类、管理和访问控制。
  * @method void setTags(array $Tags) 设置标签列表，用户自定义的键值对（Key-Value），可绑定到资源上，用于资源的分类、管理和访问控制。
  */
-class CreateContractDiffTaskWebUrlRequest extends AbstractModel
+class CreateContractComparisonTaskRequest extends AbstractModel
 {
     /**
-     * @var UserInfo 执行本接口操作的员工信息。使用此接口时，必须填写userId。
-
+     * @var UserInfo 执行合同审查任务的员工信息。
 注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
      */
     public $Operator;
 
     /**
-     * @var boolean 是否跳过文件上传确认页。
-当该参数值为`false`时，`OriginalFileResourceId`和`DiffFileResourceId`参数不需要传值，需要在生成的web页面中上传对比文件；
-当该参数值为`true`时，`OriginalFileResourceId`和`DiffFileResourceId`参数必填，生成的web页面将跳过上传页面显示对比结果。
+     * @var string 原版文件ID，对比基准的旧版本文件唯一标识，通过<a href="https://qian.tencent.com/developers/companyApis/templatesAndFiles/UploadFiles" target="_blank">UploadFiles</a>接口获取文件资源ID。
      */
-    public $SkipFileUpload;
+    public $OriginFileResourceId;
 
     /**
-     * @var string 需要对比的原合同文件资源ID，通过<a href="https://qian.tencent.com/developers/companyApis/templatesAndFiles/UploadFiles" target="_blank">UploadFiles</a>接口获取文件资源ID。
-     */
-    public $OriginalFileResourceId;
-
-    /**
-     * @var string 需要对比的新合同文件资源ID，通过<a href="https://qian.tencent.com/developers/companyApis/templatesAndFiles/UploadFiles" target="_blank">UploadFiles</a>接口获取文件资源ID。
+     * @var string 新版文件ID，与旧版进行对比的新版本文件唯一标识，通过<a href="https://qian.tencent.com/developers/companyApis/templatesAndFiles/UploadFiles" target="_blank">UploadFiles</a>接口获取文件资源ID。
      */
     public $DiffFileResourceId;
+
+    /**
+     * @var string 对比任务备注，长度不能超过50个字符。
+     */
+    public $Comment;
 
     /**
      * @var string 调用方自定义的个性化字段(可自定义此名称)，并以base64方式编码，支持的最大数据大小为 1024长度。
@@ -84,14 +75,11 @@ class CreateContractDiffTaskWebUrlRequest extends AbstractModel
     public $Tags;
 
     /**
-     * @param UserInfo $Operator 执行本接口操作的员工信息。使用此接口时，必须填写userId。
-
+     * @param UserInfo $Operator 执行合同审查任务的员工信息。
 注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
-     * @param boolean $SkipFileUpload 是否跳过文件上传确认页。
-当该参数值为`false`时，`OriginalFileResourceId`和`DiffFileResourceId`参数不需要传值，需要在生成的web页面中上传对比文件；
-当该参数值为`true`时，`OriginalFileResourceId`和`DiffFileResourceId`参数必填，生成的web页面将跳过上传页面显示对比结果。
-     * @param string $OriginalFileResourceId 需要对比的原合同文件资源ID，通过<a href="https://qian.tencent.com/developers/companyApis/templatesAndFiles/UploadFiles" target="_blank">UploadFiles</a>接口获取文件资源ID。
-     * @param string $DiffFileResourceId 需要对比的新合同文件资源ID，通过<a href="https://qian.tencent.com/developers/companyApis/templatesAndFiles/UploadFiles" target="_blank">UploadFiles</a>接口获取文件资源ID。
+     * @param string $OriginFileResourceId 原版文件ID，对比基准的旧版本文件唯一标识，通过<a href="https://qian.tencent.com/developers/companyApis/templatesAndFiles/UploadFiles" target="_blank">UploadFiles</a>接口获取文件资源ID。
+     * @param string $DiffFileResourceId 新版文件ID，与旧版进行对比的新版本文件唯一标识，通过<a href="https://qian.tencent.com/developers/companyApis/templatesAndFiles/UploadFiles" target="_blank">UploadFiles</a>接口获取文件资源ID。
+     * @param string $Comment 对比任务备注，长度不能超过50个字符。
      * @param string $UserData 调用方自定义的个性化字段(可自定义此名称)，并以base64方式编码，支持的最大数据大小为 1024长度。
 
 在合同状态变更的回调信息等场景中，该字段的信息将原封不动地透传给贵方。回调的相关说明可参考开发者中心的[回调通知](https://qian.tencent.com/developers/company/callback_types_v2)模块。
@@ -115,16 +103,16 @@ class CreateContractDiffTaskWebUrlRequest extends AbstractModel
             $this->Operator->deserialize($param["Operator"]);
         }
 
-        if (array_key_exists("SkipFileUpload",$param) and $param["SkipFileUpload"] !== null) {
-            $this->SkipFileUpload = $param["SkipFileUpload"];
-        }
-
-        if (array_key_exists("OriginalFileResourceId",$param) and $param["OriginalFileResourceId"] !== null) {
-            $this->OriginalFileResourceId = $param["OriginalFileResourceId"];
+        if (array_key_exists("OriginFileResourceId",$param) and $param["OriginFileResourceId"] !== null) {
+            $this->OriginFileResourceId = $param["OriginFileResourceId"];
         }
 
         if (array_key_exists("DiffFileResourceId",$param) and $param["DiffFileResourceId"] !== null) {
             $this->DiffFileResourceId = $param["DiffFileResourceId"];
+        }
+
+        if (array_key_exists("Comment",$param) and $param["Comment"] !== null) {
+            $this->Comment = $param["Comment"];
         }
 
         if (array_key_exists("UserData",$param) and $param["UserData"] !== null) {
