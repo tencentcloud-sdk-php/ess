@@ -18,19 +18,19 @@ namespace TencentCloud\Ess\V20201111\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CreatePreparedPersonalEsign返回参数结构体
+ * CreateFileConvertTask返回参数结构体
  *
- * @method string getSealId() 获取<p>导入生成的印章ID，为32位字符串。<br>建议开发者保存此印章ID，开头实名认证后，通过此 ID查询导入的印章。</p>
- * @method void setSealId(string $SealId) 设置<p>导入生成的印章ID，为32位字符串。<br>建议开发者保存此印章ID，开头实名认证后，通过此 ID查询导入的印章。</p>
+ * @method string getTaskId() 获取<p>接口返回的文件转换任务Id，可以调用接口<a href="https://qian.tencent.com/developers/companyApis/templatesAndFiles/GetTaskResultApi" target="_blank">查询转换任务状态</a>获取转换任务的状态和转换后的文件资源Id。</p>
+ * @method void setTaskId(string $TaskId) 设置<p>接口返回的文件转换任务Id，可以调用接口<a href="https://qian.tencent.com/developers/companyApis/templatesAndFiles/GetTaskResultApi" target="_blank">查询转换任务状态</a>获取转换任务的状态和转换后的文件资源Id。</p>
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class CreatePreparedPersonalEsignResponse extends AbstractModel
+class CreateFileConvertTaskResponse extends AbstractModel
 {
     /**
-     * @var string <p>导入生成的印章ID，为32位字符串。<br>建议开发者保存此印章ID，开头实名认证后，通过此 ID查询导入的印章。</p>
+     * @var string <p>接口返回的文件转换任务Id，可以调用接口<a href="https://qian.tencent.com/developers/companyApis/templatesAndFiles/GetTaskResultApi" target="_blank">查询转换任务状态</a>获取转换任务的状态和转换后的文件资源Id。</p>
      */
-    public $SealId;
+    public $TaskId;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +38,7 @@ class CreatePreparedPersonalEsignResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param string $SealId <p>导入生成的印章ID，为32位字符串。<br>建议开发者保存此印章ID，开头实名认证后，通过此 ID查询导入的印章。</p>
+     * @param string $TaskId <p>接口返回的文件转换任务Id，可以调用接口<a href="https://qian.tencent.com/developers/companyApis/templatesAndFiles/GetTaskResultApi" target="_blank">查询转换任务状态</a>获取转换任务的状态和转换后的文件资源Id。</p>
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,8 +54,8 @@ class CreatePreparedPersonalEsignResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("SealId",$param) and $param["SealId"] !== null) {
-            $this->SealId = $param["SealId"];
+        if (array_key_exists("TaskId",$param) and $param["TaskId"] !== null) {
+            $this->TaskId = $param["TaskId"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
